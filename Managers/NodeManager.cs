@@ -82,8 +82,9 @@ namespace Gathering
 
                 node = new()
                 {
-                    placeNameEN = FFName.FromPlaceName(pi, nodeRow.PlaceName.Row)[Dalamud.ClientLanguage.English]
+                    placeNameEN = FFName.FromPlaceName(pi, nodeRow.PlaceName.Row)[Dalamud.ClientLanguage.ChineseSimplified]
                 };
+                //PluginLog.Verbose(node.GetX().ToString());
                 node.nodes = new()
                 {
                     territory = territories.FindOrAddTerritory(pi, nodeRow.TerritoryType.Value)
@@ -91,13 +92,12 @@ namespace Gathering
                 node.nodes.nodes[nodeRow.RowId] = null;
                 if (node.nodes.territory == null)
                 {
-                    //Log.Error($"[GatherBuddy] Could not add territory {nodeRow.TerritoryType.Value.PlaceName.Row}.");
+                    Log.Error($"[GatherBuddy] Could not add territory {nodeRow.TerritoryType.Value.PlaceName.Row}.");
                     continue;
                 }
 
                 var (times, type) = GetTimes(pi, nodeRow.RowId);
                 node.times = times;
-
                 var baseRow = baseSheet.GetRow(baseId);
                 node.meta = new NodeMeta(baseRow, type);
                 

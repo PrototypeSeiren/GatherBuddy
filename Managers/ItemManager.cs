@@ -13,13 +13,13 @@ namespace Gathering
     {
         // Sorted Set so the item search uses the lexicographically first item on partial match, rather than a random one.
         public SortedSet<Gatherable>            items = new();
-        public Dictionary<string, Gatherable>[] fromLanguage = new Dictionary<string, Gatherable>[4]{ new(), new(), new(), new() };
+        public Dictionary<string, Gatherable>[] fromLanguage = new Dictionary<string, Gatherable>[5]{ new(), new(), new(), new(), new() };
         public Dictionary<int, Gatherable>      gatheringToItem = new();
 
         public ItemManager(DalamudPluginInterface pi)
         {
             var gatheringExcel = pi.Data.GetExcelSheet<GatheringItem>();
-            var itemSheets     = new ExcelSheet<Item>[4];
+            var itemSheets     = new ExcelSheet<Item>[5];
             foreach (ClientLanguage lang in Enum.GetValues(typeof(ClientLanguage)))
                 itemSheets[(int)lang] = pi.Data.GetExcelSheet<Item>(lang);
 

@@ -243,13 +243,15 @@ namespace Gathering
         private async Task<bool> SetNodeFlag(Node node)
         {
             // Coordinates = 0.0 are acceptable because of the diadem, so no error message.
+            PluginLog.Verbose($"{node.GetX()},{node.GetY()}");
             if (!configuration.UseCoordinates || node.GetX() == 0.0 || node.GetY() == 0.0)
                 return true;
 
             var xString = node.GetX().ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
             var yString = node.GetY().ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
-            var territory = node.nodes.territory?.nameList?[language] ?? "";
 
+            var territory = node.nodes.territory?.nameList?[language] ?? "";
+            chat.PrintError($"/coord {xString}, {yString} : {territory}");
             if (territory.Length == 0)
             {
                 Log.Debug($"[GatherBuddy] No territory set for node {node.meta.pointBaseId}.");
@@ -269,9 +271,10 @@ namespace Gathering
         {
             try
             {
-                if (await   EquipForNode(node) == false) return;
+                if (await SetNodeFlag(node) == false) return;
+                if (await EquipForNode(node) == false) return;
                 if (await TeleportToNode(node) == false) return;
-                if (await    SetNodeFlag(node) == false) return;
+
             }
             catch(Exception e)
             {
@@ -331,9 +334,10 @@ namespace Gathering
                     return;
                 }
 
+                if (await SetNodeFlag(node.node) == false) return;
                 if (await   EquipForNode(node.node) == false) return;
                 if (await TeleportToNode(node.node) == false) return;
-                if (await    SetNodeFlag(node.node) == false) return;
+
                 if (node.desc != null)
                 {
                     if (!configuration.UseCoordinates && node.node.meta.nodeType == NodeType.Regular)

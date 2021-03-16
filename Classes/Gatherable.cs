@@ -21,7 +21,7 @@ namespace Gathering
 
         override public string ToString()
         {
-            return $"{nameList[Dalamud.ClientLanguage.English]} ({Level()}{StarsString()})";
+            return $"{nameList[Dalamud.ClientLanguage.ChineseSimplified]} ({Level()}{StarsString()})";
         }
 
         public int CompareTo(object obj)

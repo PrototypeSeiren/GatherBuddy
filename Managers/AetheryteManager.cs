@@ -26,15 +26,13 @@ namespace Gathering
             {
                 if (!a.IsAetheryte || a.RowId <= 0)
                     continue;
-
                 var nameList = FFName.FromPlaceName(pi, a.PlaceName.Row);
                 if (nameList.AnyEmpty())
                     continue;
-
                 var mapMarker = mapMarkerList.FirstOrDefault(m => m.DataKey == a.RowId);
                 if (mapMarker == null)
                     continue;
-
+                //PluginLog.Information(mapMarker.X.ToString());
                 var scale = GetMapScale(pi, a.Map.Row);
                 var A = new Aetheryte((int)a.RowId, Util.MapMarkerToMap(mapMarker.X, scale), Util.MapMarkerToMap(mapMarker.Y, scale))
                 {
@@ -42,11 +40,9 @@ namespace Gathering
                     xStream  = a.AetherstreamX,
                     yStream  = a.AetherstreamY
                 };
-
                 var T = territories.FindOrAddTerritory(pi, a.Territory.Value);
                 if (T == null)
                     continue;
-
                 T.aetherytes.Add(A);
                 A.territory = T;
                 aetherytes.Add(A);

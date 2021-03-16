@@ -52,7 +52,7 @@ namespace Gathering
 
         override public string ToString()
         {
-            return $"{nameList[ClientLanguage.English]} - {territory.nameList[ClientLanguage.English]}-{xCoord / 100.0 :F2}:{yCoord / 100.0 :F2}";
+            return $"{nameList[ClientLanguage.ChineseSimplified]} - {territory.nameList[ClientLanguage.ChineseSimplified]}-{xCoord / 100.0 :F2}:{yCoord / 100.0 :F2}";
         }
     }
 }

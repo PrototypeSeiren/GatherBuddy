@@ -48,10 +48,15 @@ namespace Gathering
 
         private void AddIdyllshireToDravania()
         {
-            var dravania = territories.territories.Values.First( T => T.nameList[ClientLanguage.English] == "The Dravanian Hinterlands" );
+            var i=territories.territories;
+            //PluginLog.Information("{0},{1}", i.Count);
+            //foreach (KeyValuePair<uint, Territory> kvp in i) {
+            //    PluginLog.Information("{0},{1}", kvp.Key, kvp.Value);
+            //}
+            var dravania = territories.territories.Values.First( T => T.nameList[ClientLanguage.ChineseSimplified] == "¡˙±§ƒ⁄¬ΩµÕµÿ");
             if (dravania == null)
                 return;
-            var idyllshire = aetherytes.aetherytes.First( A => A.nameList[ClientLanguage.English] == "Idyllshire" );
+            var idyllshire = aetherytes.aetherytes.First( A => A.nameList[ClientLanguage.ChineseSimplified] == "ÃÔ‘∞ø§");
             if (idyllshire == null)
                 return;
             dravania.aetherytes.Add(idyllshire);

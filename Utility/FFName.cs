@@ -17,15 +17,18 @@ namespace Otter
 
         public bool AnyEmpty()
         {
-            foreach (ClientLanguage lang in Enum.GetValues(typeof(ClientLanguage)))
-                if (Name(lang) == null || Name(lang).Length == 0)
-                    return true;
+            //foreach (ClientLanguage lang in Enum.GetValues(typeof(ClientLanguage)))
+            //    if (Name(lang) == null || Name(lang).Length == 0)
+            //        return true;
+            var lang = ClientLanguage.ChineseSimplified;
+            if (Name(lang) == null || Name(lang).Length == 0)
+                return true;
             return false;
         }
 
         public override string ToString()
         {
-            return $"{Name(ClientLanguage.English)}|{Name(ClientLanguage.German)}|{Name(ClientLanguage.French)}|{Name(ClientLanguage.Japanese)}";
+            return $"{Name(ClientLanguage.ChineseSimplified)}|{Name(ClientLanguage.German)}|{Name(ClientLanguage.French)}|{Name(ClientLanguage.Japanese)}";
         }
 
         static public FFName FromPlaceName(DalamudPluginInterface pi, uint id)
@@ -49,10 +52,10 @@ namespace Otter
         {
             if (lang == ClientLanguage.German || lang == ClientLanguage.French)
                 name = Util.RemoveSplitMarkers(name);
-            nameList[(int) lang] = Util.RemoveItalics(name);
+            nameList[(int) lang] = name;
         }
 
-        private readonly string[] nameList = new string[4] { "", "", "", "" };
+        private readonly string[] nameList = new string[5] { "", "", "", "","" };
         #endregion
     }
 }

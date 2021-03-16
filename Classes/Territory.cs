@@ -22,7 +22,7 @@ namespace Gathering
 
         override public string ToString()
         {
-            return $"[{nameList[ClientLanguage.English]}][{region[ClientLanguage.English]}]";
+            return $"[{nameList[ClientLanguage.ChineseSimplified]}][{region[ClientLanguage.ChineseSimplified]}]";
         }
     }
 }

@@ -82,6 +82,10 @@ namespace Gathering
 
             return pointBaseId - rhs.pointBaseId;
         }
+
+        public override string ToString() {
+            return $"GatheringType:{gatheringType} NodeType:{nodeType} pointBaseId:{pointBaseId} Level:{level}";
+        }
     }
 
     public class NodeItems
@@ -90,7 +94,7 @@ namespace Gathering
         public readonly Gatherable[] items;
 
         // Print all items that are not null separated by '|'.
-        public string PrintItems(string separator = "|", ClientLanguage lang = ClientLanguage.English)
+        public string PrintItems(string separator = "|", ClientLanguage lang = ClientLanguage.ChineseSimplified)
         {
             string s = "";
             for(int i = 0; i < items.Length; ++i)
@@ -114,7 +118,7 @@ namespace Gathering
                 {
                     if (I == null)
                         continue;
-                    if (i == I.nameList[ClientLanguage.English])
+                    if (i == I.nameList[ClientLanguage.ChineseSimplified])
                     {
                         found = true;
                         break;
@@ -389,6 +393,10 @@ namespace Gathering
         {
             if (!items.SetFirstNullItem(this, item))
                 Log.Error($"[GatherBuddy] Could not add additional item {item} to node {meta.pointBaseId}, all 9 slots are used.");
+        }
+
+        public override string ToString() {
+            return $"placeName:{placeNameEN} {GetX()},{GetY()} meta:{meta}\n{items.PrintItems()}\n{times.PrintHours()}";
         }
     }
 }
