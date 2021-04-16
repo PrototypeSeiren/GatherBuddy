@@ -96,17 +96,17 @@ namespace Gathering
                         if (apply("无垢之证", "泡茧", 27.0, 10.0, "乔布要塞")) return;
                         if (apply("白油瀑布", "柔嫩茴香", 28.4, 21.1, "滞潮村", true)) return;
                         if (apply("拿巴示断绝", "紫草", 32.2, 33.4, "上路客店", true)) return;
-                        if (apply("快婿树岛", "", 33.7, 13.2, "法诺村", true)) return;
+                        if (apply("快婿树岛", "苍棉花", 33.7, 13.2, "法诺村", true)) return;
                         break;
                     case 80 + Logging:
                         if (apply("刺舌滴", "小柠檬", 20.0, 27.0, "工匠村")) return;
                         if (apply("缪栎的乡愁", "檀香木原木", 24.0, 36.0, "蛇行枝")) return;
                         if (apply("安登小羊圈", "印茄原木", 36.5, 27.3, "群花馆", true)) return;
-                        if (apply("迦利克村", "", 16.0, 10.9, "络尾聚落", true)) return;
-                        if (apply("责罚监狱", "", 5.2, 26.5, "奥斯塔尔严命城", true)) return;
-                        if (apply("中琥珀丘", "", 18.6, 20.5, "络尾聚落")) return;
-                        if (apply("诺弗兰特大陆坡", "", 37.5, 11.7, "鳍人潮池")) return;
-                        if (apply("石楠瀑布", "", 30.6, 6.9, "阿拉加纳")) return;
+                        if (apply("迦利克村", "银山毛榉原木", 16.0, 10.9, "络尾聚落", true)) return;
+                        if (apply("责罚监狱", "硬质金合欢树皮", 5.2, 26.5, "奥斯塔尔严命城", true)) return;
+                        if (apply("中琥珀丘", "收藏用沙柚木原木", 18.6, 20.5, "络尾聚落")) return;
+                        if (apply("诺弗兰特大陆坡", "收藏用海藻", 37.5, 11.7, "鳍人潮池")) return;
+                        if (apply("石楠瀑布", "收藏用乌仑代硬木原木", 30.6, 6.9, "阿拉加纳")) return;
                         break;
                     case 80 + Mining:
                         if (apply("水站", "三重石原石", 20.0, 29.0, "上路客店")) return;
@@ -115,21 +115,21 @@ namespace Gathering
                         if (apply("圣法斯里克天庭", "彩虹晶", 30.0, 20.0, "云村")) return;
                         if (apply("陆人墓标", "重钨矿", 32.0, 7.0, "鳍人潮池")) return;
                         if (apply("贤岛", "金锡矿", 4.7, 33.9, "奥斯塔尔严命城", true)) return;
-                        if (apply("破裂卵壳", "", 7.5, 30.1, "蛇行枝", true)) return;
-                        if (apply("侏儒烟囱", "", 36.1, 12.2, "图姆拉村", true)) return;
-                        if (apply("鳍人潮池", "", 32.7, 20.6, "鳍人潮池")) return;
-                        if (apply("诺弗兰特大陆坡", "", 25.1, 4.5, "鳍人潮池")) return;
-                        if (apply("无垢干谷", "", 31.6, 31.4, "对等石")) return;
+                        if (apply("破裂卵壳", "苦灰石", 7.5, 30.1, "蛇行枝", true)) return;
+                        if (apply("侏儒烟囱", "超硬水", 36.1, 12.2, "图姆拉村", true)) return;
+                        if (apply("鳍人潮池", "收藏用海底岩", 32.7, 20.6, "鳍人潮池")) return;
+                        if (apply("诺弗兰特大陆坡", "收藏用海盐", 25.1, 4.5, "鳍人潮池")) return;
+                        if (apply("无垢干谷", "收藏用基拉巴尼亚明矾", 31.6, 31.4, "对等石")) return;
                         break;
                     case 80 + Quarrying:
                         if (apply("尊紫洞", "尊紫洞 Shell Chip", 34.4, 31.3, "马克连萨斯广场", true)) return;
                         if (apply("比朗大矿山", "灰明矾", 20.1, 8.6, "络尾聚落", true)) return;
-                        if (apply("孚布特堡", "", 35.6, 8.7, "云村", true)) return;
+                        if (apply("孚布特堡", "白夜结晶", 35.6, 8.7, "云村", true)) return;
                         break;
 
                     case 75 + Logging:
-                        if (apply("凿岩门", "", 28.0, 32.8, "滞潮村")) return;
-                        if (apply("羊毛道", "", 4.1, 23.1, "群花馆")) return;
+                        if (apply("凿岩门", "收藏用白橡木原木", 28.0, 32.8, "滞潮村")) return;
+                        if (apply("羊毛道", "收藏用仙子苹果", 4.1, 23.1, "群花馆")) return;
                         break;
                     case 75 + Harvesting:
                         if (apply("群树馆", "蚕豆", 24.0, 36.0, "群花馆")) return;
@@ -138,8 +138,8 @@ namespace Gathering
                     case 75 + Mining:
                         if (apply("六子浅滩", "硬水铝石原石", 26.0, 13.0, "云村")) return;
                         if (apply("书著者树洞", "青金石原石", 25.0, 34.0, "蛇行枝")) return;
-                        if (apply("束带路", "", 31.3, 24.2, "乔布要塞")) return;
-                        if (apply("书著者树洞", "", 16.5, 18.2, "蛇行枝")) return;
+                        if (apply("束带路", "收藏用钛铜矿", 31.3, 24.2, "乔布要塞")) return;
+                        if (apply("书著者树洞", "收藏用青金石原石", 16.5, 18.2, "蛇行枝")) return;
                         break;
 
                     case 70 + Harvesting:
@@ -156,7 +156,7 @@ namespace Gathering
                         if (apply("尖枪瀑布", "黑柳原木", 15.0, 21.0, "帝国东方堡")) return;
                         if (apply("红锈岩山", "乌仑代硬木原木", 32.0, 10.0, "阿拉加纳")) return;
                         if (apply("温蒙特造船厂", "白橡木枝", 12.0, 29.0, "工匠村")) return;
-                        if (apply("多玛", "", 18.7, 14.4, "烈士庵")) return;
+                        if (apply("多玛", "收藏用松脂", 18.7, 14.4, "烈士庵")) return;
                         break;
                     case 70 + Mining:
                         if (apply("红锈岩山", "蔷薇辉石原石", 26.0, 12.0, "阿拉加纳")) return;
@@ -169,7 +169,7 @@ namespace Gathering
                         if (apply("无垢干谷", "岩铁", 31.0, 27.0, "对等石")) return;
                         if (apply("盐湖", "常辉矿", 22.0, 13.0, "天营门")) return;
                         if (apply("总督田地", "乌钢石原石", 33.0, 23.0, "滞潮村")) return;
-                        if (apply("刃海", "", 36.0, 26.4, "重逢集市")) return;
+                        if (apply("刃海", "收藏用石青原石", 36.0, 26.4, "重逢集市")) return;
                         break;
                     case 70 + Quarrying:
                         if (apply("盐湖", "阿拉米格盐", 21.0, 29.0, "阿拉米格人居住区")) return;
@@ -177,14 +177,14 @@ namespace Gathering
 
                     case 65 + Logging:
                         if (apply("无二江流域", "竹笋", 28.0, 25.0, "茨菰村水塘")) return;
-                        if (apply("渔村沿岸", "", 6.0, 15.8, "自凝岛近海")) return;
-                        if (apply("冲之岩近海", "", 33.1, 9.2, "自凝岛近海", true)) return; // Aetheryte
+                        if (apply("渔村沿岸", "收藏用落叶松原木", 6.0, 15.8, "自凝岛近海")) return;
+                        if (apply("冲之岩近海", "收藏用香菇", 33.1, 9.2, "自凝岛近海", true)) return; // Aetheryte
                         break;
                     case 65 + Mining:
                         if (apply("奥萨德东岸", "星尖石原石", 15.0, 4.5, "自凝岛近海")) return;
-                        if (apply("幻河", "", 29.6, 12.9, "神拳痕", true)) return; // Aetheryte
-                        if (apply("尖枪瀑布", "", 18.1, 22.8, "对等石")) return;
-                        if (apply("蟹茹滨", "", 21.2, 34.4, "黄金港城区", true)) return; // Aetheryte
+                        if (apply("幻河", "收藏用锂辉石原石", 29.6, 12.9, "神拳痕", true)) return; // Aetheryte
+                        if (apply("尖枪瀑布", "收藏用基拉巴尼亚矿泉水", 18.1, 22.8, "对等石")) return;
+                        if (apply("蟹茹滨", "收藏用星尖石原石", 21.2, 34.4, "黄金港城区", true)) return; // Aetheryte
                         break;
 
                     case 60 + Harvesting:
@@ -204,7 +204,7 @@ namespace Gathering
                         if (apply("贝塔管区", "金合欢树皮", 22.0, 10.0, "螺旋港")) return;
                         if (apply("竖骨岛", "樟木古树", 11.0, 10.0, "天极白垩宫")) return;
                         if (apply("东境混交林", "山毛榉树枝", 11.0, 18.0, "帝国东方堡")) return;
-                        if (apply("阿瓦隆尼亚古陆", "", 16.2, 35.5, "不洁三塔")) return;
+                        if (apply("阿瓦隆尼亚古陆", "收藏用毛栗子", 16.2, 35.5, "不洁三塔")) return;
                         break;
                     case 60 + Mining:
                         if (apply("双子池", "钨华", 10.0, 9.0, "尾羽集落")) return;
@@ -215,7 +215,7 @@ namespace Gathering
                         if (apply("生态园", "红明矾", 35.0, 16.0, "螺旋港")) return;
                         if (apply("试炼群岛", "菱锌矿", 38.0, 15.0, "尊杜集落")) return;
                         if (apply("条纹丘", "锂辉石原石", 25.0, 8.0, "帝国东方堡")) return;
-                        if (apply("蓝天窗", "", 20.6, 11.6, "尊杜集落")) return;
+                        if (apply("蓝天窗", "收藏用阿巴拉提亚天然水", 20.6, 11.6, "尊杜集落")) return;
                         break;
                     case 60 + Quarrying:
                         if (apply("萨雷安睿哲区", "沸石", 13.0, 31.0, "田园郡")) return;
@@ -229,11 +229,11 @@ namespace Gathering
                         break;
                     case 55 + Logging:
                         if (apply("竖骨岛", "牛肝菌", 24.0, 6.0, "天极白垩宫")) return;
-                        if (apply("荒烟野地", "", 29.2, 30.1, "尾羽集落")) return;
+                        if (apply("荒烟野地", "收藏用暗栗木树液", 29.2, 30.1, "尾羽集落")) return;
                         break;
                     case 55 + Mining:
                         if (apply("荒烟野地", "黄铁矿", 26.0, 17.0, "尾羽集落")) return;
-                        if (apply("荒烟野地", "", 30.7, 32.2, "尾羽集落")) return;
+                        if (apply("荒烟野地", "收藏用黄铁矿", 30.7, 32.2, "尾羽集落")) return;
                         break;
                     case 55 + Quarrying:
                         if (apply("招恶荒岛", "翠绿石英", 33.0, 22.0, "莫古力之家")) return;
@@ -300,7 +300,7 @@ namespace Gathering
                         if (apply("白鲸头冠", "改良用的乳胶", 29.2, 23.4, "尊杜集落")) return;
                         if (apply("野园", "甜香荠", 24.0, 28.0, "蛇行枝")) return;
                         if (apply("杂草岛", "虎百合", 23.0, 34.0, "乔布要塞")) return;
-                        if (apply("琥珀原", "", 26.7, 27.5, "上路客店")) return;
+                        if (apply("琥珀原", "收藏用黑夜胡椒", 26.7, 27.5, "上路客店")) return;
                         break;
                     case 80 + Logging:
                         if (apply("四臂广场", "改良用的琥珀", 25.0, 28.2, "莫古力之家")) return;
@@ -311,7 +311,7 @@ namespace Gathering
                         if (apply("破坏神像", "改良用暗栗木原木", 20.3, 18.0, "天营门")) return;
                         if (apply("冠毛大树", "改良用古代原木", 7.0, 34.2, "螺旋港")) return;
                         if (apply("超星际通信塔", "改良用古代原木", 7.1, 15.9, "螺旋港")) return;
-                        if (apply("对偶处刑台", "", 11.6, 26.8, "螺旋港")) return;
+                        if (apply("对偶处刑台", "Oddly Delicate Feather", 11.6, 26.8, "螺旋港")) return;
                         break;
                     case 80 + Mining:
                         if (apply("彻悟岩窟", "改良用的暗物质", 17.1, 10.8, "不洁三塔")) return;
@@ -323,13 +323,13 @@ namespace Gathering
                         if (apply("贫民的金矿", "改良用黑碧玺", 4.0, 26.7, "天营门")) return;
                         if (apply("德尔塔水务局", "改良用古代矿石", 11.0, 35.2, "螺旋港")) return;
                         if (apply("综合冷却局", "改良用古代矿石", 14.0, 9.8, "螺旋港")) return;
-                        if (apply("伽马管区", "", 36.2, 27.8, "螺旋港")) return;
+                        if (apply("伽马管区", "Oddly Delicate Adamantite Ore", 36.2, 27.8, "螺旋港")) return;
                         break;
                     case 80 + Quarrying:
                         if (apply("友好村", "薄暗灵砂", 22.0, 16.0, "图姆拉村")) return;
                         if (apply("比朗大矿山", "钛铜沙", 15.0, 12.0, "络尾聚落")) return;
                         if (apply("小刀石柱群", "改良用的暗物质", 30.9, 28.2, "不洁三塔")) return;
-                        if (apply("希秋亚湿原", "", 16.0, 28.8, "蛇行枝")) return;
+                        if (apply("希秋亚湿原", "收藏用魔银沙", 16.0, 28.8, "蛇行枝")) return;
                         break;
                     case 75 + Harvesting:
                         if (apply("湍流三角地", "采集工具的素材", 13.9, 32.7, "田园郡")) return;
@@ -339,7 +339,7 @@ namespace Gathering
                         if (apply("候鸟云巢", "工匠工具部件的素材", 35.9, 36.0, "云顶营地")) return;
                         if (apply("羊毛道", "巨大生物的进食痕迹", 11.0, 24.0, "群花馆")) return;
                         if (apply("弓束官邸", "印刷必需品的素材", 17.2, 30.8, "茨菰村水塘")) return;
-                        if (apply("拉克汕城", "", 23.4, 13.1, "乔布要塞")) return;
+                        if (apply("拉克汕城", "收藏用白麻", 23.4, 13.1, "乔布要塞")) return;
                         break;
                     case 75 + Logging:
                         if (apply("藏泪丘", "招待菜肴的素材", 35.0, 8.5, "阿拉加纳")) return;
@@ -355,13 +355,13 @@ namespace Gathering
                         if (apply("破碎脊骨", "工匠工具部件的素材", 28.9, 7.5, "尊杜集落")) return;
                         if (apply("杂草岛", "野生生物的遗留物", 26.0, 34.0, "乔布要塞")) return;
                         if (apply("西方水泉", "缝纫工具的素材", 8.0, 7.8, "天极白垩宫")) return;
-                        if (apply("迷途羊倌之森", "", 27.4, 21.6, "乔布要塞")) return;
+                        if (apply("迷途羊倌之森", "收藏用灵青岩", 27.4, 21.6, "乔布要塞")) return;
                         break;
                     case 75 + Quarrying:
                         if (apply("洛查特尔大阶梯", "魔银沙", 17.0, 19.0, "蛇行枝")) return;
                         if (apply("缓慢道", "硬金沙", 21.0, 30.0, "工匠村")) return;
                         if (apply("圣菲内雅连队露营地", "采集工具的素材", 13.4, 23.9, "隼巢")) return;
-                        if (apply("The Kobayashi Maru", "Handpicked Ingredients", 39.4, 4.0, "自凝岛")) return;
+                        if (apply("The Kobayashi Maru", "招待菜肴的素材", 39.4, 4.0, "自凝岛")) return;
                         break;
                     case 70 + Harvesting:
                         if (apply("多玛", "白萝卜", 22.0, 10.0, "烈士庵")) return;
@@ -393,7 +393,7 @@ namespace Gathering
                         if (apply("竖骨岛", "云海之羽", 8.0, 15.0, "天极白垩宫")) return;
                         if (apply("螺旋海峡", "红玉藻", 26.0, 19.0, "碧玉水附近")) return;
                         if (apply("林梢", "山芋", 13.0, 11.0, "阿拉加纳")) return;
-                        if (apply("幻河", "", 29.0, 11.0, "神拳痕")) return;
+                        if (apply("幻河", "收藏用赤麻", 29.0, 11.0, "神拳痕")) return;
                         break;
                     case 65 + Logging:
                         if (apply("东境混交林", "山毛榉原木", 10.0, 16.0, "帝国东方堡")) return;
@@ -405,7 +405,7 @@ namespace Gathering
                         if (apply("大脚雪人居所", "保温材料", 22.0, 35.0, "隼巢")) return;
                         if (apply("玄水连山", "石间清水", 33.0, 22.0, "茨菰村水塘")) return;
                         if (apply("条纹丘", "基拉巴尼亚矿泉水", 23.0, 13.0, "帝国东方堡")) return;
-                        if (apply("尖枪瀑布", "", 18.1, 22.8, "对等石")) return;
+                        if (apply("尖枪瀑布", "收藏用基拉巴尼亚矿泉水", 18.1, 22.8, "对等石")) return;
                         break;
                     case 65 + Quarrying:
                         if (apply("人王遗迹", "云海之羽", 34.0, 25.0, "莫古力之家")) return;
@@ -442,7 +442,7 @@ namespace Gathering
                         if (apply("陆行鸟之森", "高地小麦", 36.0, 20.0, "尾羽集落")) return;
                         if (apply("人王遗迹", "熔岩甜菜", 20.0, 21.0, "天极白垩宫")) return;
                         if (apply("双子池", "虹棉", 17.0, 16.0, "隼巢")) return;
-                        if (apply("库尔札斯河", "", 24.7, 14.3, "隼巢")) return;
+                        if (apply("库尔札斯河", "收藏用虹棉", 24.7, 14.3, "隼巢")) return;
                         break;
                     case 55 + Logging:
                         if (apply("荒烟野地", "暗栗木原木", 25.0, 25.0, "尾羽集落")) return;
@@ -454,7 +454,7 @@ namespace Gathering
                         break;
                     case 55 + Quarrying:
                         if (apply("双子池", "灵银沙", 16.0, 12.0, "尾羽集落")) return;
-                        if (apply("铁杉村", "", 35.9, 23.4, "隼巢")) return;
+                        if (apply("铁杉村", "收藏用灵银沙", 35.9, 23.4, "隼巢")) return;
                         break;
                     case 50 + Harvesting:
                         if (apply("撒沟厉沙漠", "萨纳兰茶叶", 13.0, 31.0, "遗忘绿洲")) return;

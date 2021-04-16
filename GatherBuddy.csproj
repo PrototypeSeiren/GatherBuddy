@@ -13,6 +13,7 @@
     <Deterministic>true</Deterministic>
     <LangVersion>preview</LangVersion>
     <ProjectGuid>{A5439F6B-83C1-4078-9371-354A147FF554}</ProjectGuid>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,22 +39,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dalamud">
-      <HintPath>..\Dalamud\Dalamud.dll</HintPath>
+      <HintPath>..\Dalamud\bin\Dalamud.dll</HintPath>
     </Reference>
     <Reference Include="ImGui.NET">
-      <HintPath>..\Dalamud\ImGui.NET.dll</HintPath>
+      <HintPath>..\Dalamud\bin\ImGui.NET.dll</HintPath>
     </Reference>
     <Reference Include="ImGuiScene">
-      <HintPath>..\Dalamud\ImGuiScene.dll</HintPath>
-    </Reference>
-    <Reference Include="SDL2-CS">
-      <HintPath>..\Dalamud\SDL2-CS.dll</HintPath>
+      <HintPath>..\Dalamud\bin\ImGuiScene.dll</HintPath>
     </Reference>
     <Reference Include="Lumina">
-      <HintPath>..\Dalamud\Lumina.dll</HintPath>
+      <HintPath>..\Dalamud\bin\Lumina.dll</HintPath>
     </Reference>
-    <Reference Include="Lumina.Generated">
-      <HintPath>..\Dalamud\Lumina.Generated.dll</HintPath>
+    <Reference Include="Lumina.Excel">
+      <HintPath>..\Dalamud\bin\Lumina.Excel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

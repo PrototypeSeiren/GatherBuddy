@@ -88,14 +88,14 @@ namespace Gathering
             //PluginLog.Verbose($"NodeCount:{i.ToString()}");
 
 
-            //Add(dict, "80***", "Contains exarchic crafting nodes."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 758), null) // Hard Water
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 759), null) // Solstice Stone
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 760), null) // Dolomite
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 761), null) // Wattle Petribark
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 762), null) // Silver Beech Log
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 763), null) // Raindrop Cotton Boll               
-            //);
+            Add(dict, "80***", "Contains exarchic crafting nodes."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 758), null) // Hard Water
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 759), null) // Solstice Stone
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 760), null) // Dolomite
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 761), null) // Wattle Petribark
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 762), null) // Silver Beech Log
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 763), null) // Raindrop Cotton Boll               
+            );
 
             Add(dict, "80**", "Contains neo-ishgardian / aesthete crafting nodes."
                , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 681), null) // Brashgold
@@ -124,82 +124,82 @@ namespace Gathering
                , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 492), null)
             );
 
-            //Add(dict, "80ws", "Contains Shadowbringers white scrip collectibles."
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 781), "Rarefied Mansilver Sand")     // 6
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 777), "Rarefied Urunday Log")        // 0
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 775), "Rarefied Amber Cloves")       // 2
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 776), "Rarefied Coral")              // 4
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 334), "收藏用黑玛瑙原石")           // 8
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 767), "Rarefied Gyr Abanian Alumen") // 10
-            //);
+            Add(dict, "80ws", "Contains Shadowbringers white scrip collectibles."
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 781), "Rarefied Mansilver Sand")     // 6
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 777), "收藏用乌仑代硬木原木")        // 0
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 775), "收藏用琥珀丁香")       // 2
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 776), "收藏用珊瑚")              // 4
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 334), "收藏用黑玛瑙原石")           // 8
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 767), "收藏用基拉巴尼亚明矾") // 10
+            );
 
-            //Add(dict, "80ys", "Contains Shadowbringers yellow scrip collectibles."
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 784), "Rarefied Bright Flax")       // 0
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 766), "Rarefied Reef Rock")         // 2
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 330), "Rarefied Raw Petalite")      // 4
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 332), "Rarefied Raw Lazurite")      // 6
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 334), "Rarefied Sea Salt")          // 8
-            //, (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 773), "Rarefied Miracle Apple Log") // 10
-            //);
+            Add(dict, "80ys", "Contains Shadowbringers yellow scrip collectibles."
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 784), "收藏用白麻")       // 0
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 766), "收藏用海底岩")         // 2
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 330), "收藏用透锂长石原石")      // 4
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 332), "收藏用青金石原石")      // 6
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 334), "收藏用海盐")          // 8
+            , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 773), "收藏用仙果木原木") // 10
+            );
 
-            //Add(dict, "80ysmin", "Contains Shadowbringers yellow scrip miner collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 780), "Rarefied Bluespirit Ore") // 0, 10
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 766), "Rarefied Reef Rock")      // 2
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 330), "Rarefied Raw Petalite")   // 4
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 332), "Rarefied Raw Lazurite")   // 6
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 334), "Rarefied Sea Salt")       // 8
-            //);
+            Add(dict, "80ysmin", "Contains Shadowbringers yellow scrip miner collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 780), "收藏用灵青岩") // 0, 10
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 766), "收藏用海底岩")      // 2
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 330), "收藏用透锂长石原石")   // 4
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 332), "收藏用青金石原石")   // 6
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 334), "收藏用海盐")       // 8
+            );
 
-            //Add(dict, "80ysbot", "Contains Shadowbringers yellow scrip botanist collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 784), "Rarefied Bright Flax")       // 0, 6
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 775), "Rarefied Sandteak Log")      // 2
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 776), "Rarefied Kelp")              // 4
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 774), "Rarefied White Oak Log")     // 8
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 773), "Rarefied Miracle Apple Log") // 10
-            //);
+            Add(dict, "80ysbot", "Contains Shadowbringers yellow scrip botanist collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 784), "收藏用白麻")       // 0, 6
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 775), "收藏用沙柚木原木")      // 2
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 776), "收藏用海藻")              // 4
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 774), "收藏用白橡木原木")     // 8
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 773), "收藏用仙果木原木") // 10
+            );
 
-            //Add(dict, "70ys", "Contains Stormblood yellow scrip collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 772), "Rarefied Pine Log")          // 0
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 770), "Rarefied Larch Log")         // 2
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 771), "Rarefied Shiitake Mushroom") // 4
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 328), "Rarefied Silvergrace Ore")   // 6
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 310), "Rarefied Raw Kyanite")       // 8
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 312), "Rarefied Raw Star Spinel")   // 10
-            //);
+            Add(dict, "70ys", "Contains Stormblood yellow scrip collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 772), "收藏用松木原木")          // 0
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 770), "收藏用落叶松原木")         // 2
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 771), "收藏用香菇") // 4
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 328), "收藏用清银矿")   // 6
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 310), "收藏用蓝晶石原石")       // 8
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 312), "收藏用星尖石原石")   // 10
+            );
 
-            //Add(dict, "70ysmin", "Contains Stormblood yellow scrip miner collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 779), "Rarefied Gyr Abanian Mineral Water") // 0, 2, 4
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 328), "Rarefied Silvergrace Ore")           // 6
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 310), "Rarefied Raw Kyanite")               // 8
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 312), "Rarefied Raw Star Spinel")           // 10
-            //);
+            Add(dict, "70ysmin", "Contains Stormblood yellow scrip miner collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 779), "收藏用基拉巴尼亚矿泉水") // 0, 2, 4
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 328), "收藏用清银矿")           // 6
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 310), "收藏用蓝晶石原石")               // 8
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 312), "收藏用星尖石原石")           // 10
+            );
 
-            //Add(dict, "70ysbot", "Contains Stormblood yellow scrip botanist collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 783), "Rarefied Blood Hemp")        // 6, 8, 10
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 772), "Rarefied Pine Log")          // 0
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 770), "Rarefied Larch Log")         // 2
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 771), "Rarefied Shiitake Mushroom") // 4
-            //);
+            Add(dict, "70ysbot", "Contains Stormblood yellow scrip botanist collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 783), "Rarefied Blood Hemp")        // 6, 8, 10
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 772), "收藏用松木原木")          // 0
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 770), "收藏用落叶松原木")         // 2
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 771), "收藏用香菇") // 4
+            );
 
-            //Add(dict, "60ys", "Contains Heavensward yellow scrip collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 778), "Rarefied Mythrite Sand")     // 6, 8
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 769), "Rarefied Dark Chestnut")     // 0
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 308), "Rarefied Aurum Regis Sand")  // 2
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 310), "Rarefied Limonite")          // 4
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 768), "Rarefied Dark Chestnut Log") // 10
-            //);
+            Add(dict, "60ys", "Contains Heavensward yellow scrip collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 778), "收藏用灵银沙")     // 6, 8
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 769), "收藏用毛栗子")     // 0
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 308), "收藏用皇金沙")  // 2
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 310), "收藏用蓝晶石原石")          // 4
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 768), "收藏用暗栗木原木") // 10
+            );
 
-            //Add(dict, "60ysmin", "Contains Heavensward yellow scrip miner collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 778), "Rarefied Mythrite Sand") // 0, 6, 8, 10
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 308), "Rarefied Aurum Regis Sand") // 2
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 310), "Rarefied Limonite") // 4
-            //);
+            Add(dict, "60ysmin", "Contains Heavensward yellow scrip miner collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 778), "收藏用灵银沙") // 0, 6, 8, 10
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 308), "收藏用皇金沙") // 2
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 306), "收藏用褐铁矿") // 4
+            );
 
-            //Add(dict, "60ysbot", "Contains Heavensward yellow scrip botanist collectibles."
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 782), "Rarefied Rainbow Cotton Boll") // 2, 4, 6, 8
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 769), "Rarefied Dark Chestnut")       // 0
-            //   , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 768), "Rarefied Dark Chestnut Log")   // 10
-            //);
+            Add(dict, "60ysbot", "Contains Heavensward yellow scrip botanist collectibles."
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 782), "收藏用虹棉") // 2, 4, 6, 8
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 769), "收藏用毛栗子")       // 0
+               , (nodeValues.FirstOrDefault(N => N.meta.pointBaseId == 768), "收藏用暗栗木原木")   // 10
+            );
 
             return dict;
         }
