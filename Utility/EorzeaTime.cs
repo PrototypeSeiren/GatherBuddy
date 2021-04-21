@@ -1,53 +1,77 @@
 using System;
 
-namespace Gathering
+namespace GatherBuddy.Utility
 {
+    public static class RealTime
+    {
+        public const int SecondsPerMinute = 60;
+        public const int MinutesPerHour   = 60;
+        public const int HoursPerDay      = 24;
+        public const int SecondsPerHour   = SecondsPerMinute * MinutesPerHour;
+        public const int MinutesPerDay    = MinutesPerHour * HoursPerDay;
+        public const int SecondsPerDay    = SecondsPerMinute * MinutesPerDay;
+
+        public static readonly DateTime UnixEpoch = new(1970, 1, 1);
+
+        public static long CurrentTimestamp()
+            => DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    }
+
     public static class EorzeaTime
-    {   
-        public static int CurrentHours(int minuteOffset = 0)
+    {
+        public const int    SecondsPerEorzeaHour = 175;
+        public const int    SecondsPerEorzeaDay  = RealTime.HoursPerDay * SecondsPerEorzeaHour;
+        public const double ConversionFactor     = 7.0 / 144.0;
+
+        public static long CurrentTimestamp()
+            => RealTime.CurrentTimestamp() * 144 / 7;
+
+        public static long CurrentHour()
+            => RealTime.CurrentTimestamp() / SecondsPerEorzeaHour;
+
+        public static long CurrentHour(int eorzeaMinuteOffset)
+            => (CurrentTimestamp() + RealTime.SecondsPerMinute * eorzeaMinuteOffset) / RealTime.SecondsPerHour;
+
+        public static uint CurrentHourOfDay()
+            => (uint) CurrentHour() % RealTime.HoursPerDay;
+
+        public static uint CurrentHourOfDay(int eorzeaMinuteOffset)
+            => (uint) CurrentHour(eorzeaMinuteOffset) % RealTime.HoursPerDay;
+
+        public static long CurrentMinute(int eorzeaMinuteOffset = 0)
+            => RealTime.CurrentTimestamp() * 36 / 105 + eorzeaMinuteOffset;
+
+        public static uint CurrentMinuteOfHour(int eorzeaMinuteOffset = 0)
+            => (uint) CurrentMinute(eorzeaMinuteOffset) % RealTime.MinutesPerHour;
+
+        public static uint CurrentMinuteOfDay(int eorzeaMinuteOffset = 0)
+            => (uint) CurrentMinute(eorzeaMinuteOffset) % RealTime.MinutesPerDay;
+
+        public static (uint hours, uint minutes) CurrentTimeOfDay(int eorzeaMinuteOffset = 0)
         {
-            var timestamp = CurrentEorzeaTimestamp() + 60 * minuteOffset;
-            return ToHours(timestamp);
+            var timestamp = CurrentTimestamp() + RealTime.SecondsPerMinute * eorzeaMinuteOffset;
+            return ((uint) (timestamp / RealTime.SecondsPerHour) % RealTime.HoursPerDay,
+                (uint) (timestamp / RealTime.SecondsPerMinute) % RealTime.MinutesPerHour);
         }
 
-        public static int CurrentMinutes(int minuteOffset = 0)
-        {
-            var timestamp = CurrentEorzeaTimestamp() + 60 * minuteOffset;
-            return ToMinutes(timestamp);
-        }
+        private static long RealTimestamp(DateTime time)
+            => (long) (time - RealTime.UnixEpoch).TotalSeconds;
 
-        public static int CurrentMinuteOfDay()
-            => (int) (CurrentEorzeaTimestamp() / 60) % (24 * 60);
+        public static long Hour(DateTime time)
+            => RealTimestamp(time) / SecondsPerEorzeaHour;
 
-        public static (int hours, int minutes) CurrentTime(int minuteOffset = 0)
-        {
-            var timestamp = CurrentEorzeaTimestamp() + 60 * minuteOffset;
-            return (hours: ToHours(timestamp), minutes: ToMinutes(timestamp));
-        }
+        public static uint HourOfDay(DateTime time)
+            => (uint) Hour(time) % RealTime.HoursPerDay;
 
-        #region conversions
-        private static long CurrentEorzeaTimestamp()
-        {
-            return (DateTimeOffset.UtcNow.ToUnixTimeSeconds() * 144) / 7;
-        }
+        public static uint MinuteOfDay(DateTime time)
+            => (uint) (RealTimestamp(time) * 36 / 105) % RealTime.SecondsPerMinute;
 
-        public static (int minutes, int seconds) MinutesToReal(long eorzeaMinutes)
+        public static (long minutes, long seconds) MinutesToReal(long eorzeaMinutes)
         {
-            var time = (eorzeaMinutes * 7.0) / 144.0;
-            var m = (int) time;
-            var s = (int) ((time - m) * 60.0);
+            var time = eorzeaMinutes * ConversionFactor;
+            var m    = (long) time;
+            var s    = (long) ((time - m) * RealTime.SecondsPerMinute);
             return (m, s);
         }
-
-        private static int ToHours(long eorzeaTimestamp)
-        {
-            return (int)(eorzeaTimestamp / 3600) % 24;
-        }
-
-        private static int ToMinutes(long eorzeaTimestamp)
-        {
-            return (int)((eorzeaTimestamp / 60) % 60);
-        }
-        #endregion
     }
 }

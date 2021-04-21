@@ -1,99 +1,170 @@
-using System;
-using Serilog;
 using System.Collections.Generic;
 using Dalamud.Plugin;
 using Dalamud;
 using System.Linq;
-using GatherBuddyPlugin;
+using GatherBuddy.Enums;
+using GatherBuddy.Game;
+using GatherBuddy.Nodes;
+using Lumina.Excel.GeneratedSheets;
+using FishingSpot = GatherBuddy.Game.FishingSpot;
+using GatheringType = GatherBuddy.Enums.GatheringType;
 
-namespace Gathering
+namespace GatherBuddy.Managers
 {
     public class World
     {
-        private readonly DalamudPluginInterface pi;
-        public  readonly ClientLanguage         language;
-        public readonly TerritoryManager        territories;
-        public readonly AetheryteManager        aetherytes;
-        public readonly ItemManager             items;
-        public readonly NodeManager             nodes;
-        private int                             currentXStream = 0;
-        private int                             currentYStream = 0;
+        private readonly DalamudPluginInterface _pi;
+        public           ClientLanguage         Language    { get; }
+        public           TerritoryManager       Territories { get; }
+        public           AetheryteManager       Aetherytes  { get; }
+        public           ItemManager            Items       { get; }
+        public           FishManager            Fish        { get; }
+        public           NodeManager            Nodes       { get; }
+        public           WeatherManager         Weather     { get; }
 
-        public void SetPlayerStreamCoords(UInt16 territory)
+        private int _currentXStream;
+        private int _currentYStream;
+
+        private void AddAetherytes(Territory territory)
         {
-            var rawT = pi.Data.GetExcelSheet<Lumina.Excel.GeneratedSheets.TerritoryType>().GetRow(territory);
-            var rawA = rawT?.Aetheryte?.Value;
+            var aetheryteName = (string) territory.Name switch
+            {
+                "Áú±¤ÄÚÂ½µÍµØ" => "ÌïÔ°¿¤",
+                "ÀûÄ·Èø¡¤ÂÞÃôÈøÉÏ²ã¼×°å" => "ÀûÄ·Èø¡¤ÂÞÃôÈøÏÂ²ã¼×°å",
+                "º£Îí´å" => "ÀûÄ·Èø¡¤ÂÞÃôÈøÏÂ²ã¼×°å",
+                "¸ñÀï´ïÄáÑÇ¾É½Ö" => "¸ñÀï´ïÄáÑÇÐÂ½Ö",
+                "Þ¹ÒÂ²ÝÃçÆÔ" => "¸ñÀï´ïÄáÑÇÐÂ½Ö",
+                "¸ß½Å¹ÂÇð" => "ÎÚ¶û´ï¹þÏÖÊÀ»ØÀÈ",
+                "°×ÒøÏç" => "»Æ½ð¸Û",
+                "The Endeavor"              => "ÀûÄ·Èø¡¤ÂÞÃôÈøÏÂ²ã¼×°å",
+                "ÔÆ¹ÚÈºµº" => "ÒÁÐÞ¼ÓµÂ»ù´¡²ã",
+                _                           => null,
+            };
+            if (aetheryteName == null)
+                return;
 
-            currentXStream = rawA?.AetherstreamX ?? 0;
-            currentYStream = rawA?.AetherstreamY ?? 0;
+            var aetheryte = Aetherytes.Aetherytes.FirstOrDefault(a => a.Name == aetheryteName);
+            if (aetheryte != null)
+                territory.Aetherytes.Add(aetheryte);
+            else
+                PluginLog.Error($"Tried to add {aetheryteName} to {territory.Name}, but aetheryte not found.");
         }
 
-        public Node ClosestNodeFromNodeList(IEnumerable<Node> nodes, GatheringType? type = null)
+        public Territory? FindOrAddTerritory(TerritoryType territory)
         {
-            Node   minNode = null;
-            double minDist = Double.MaxValue;
+            var newTerritory = Territories.FindOrAddTerritory(_pi, territory);
+            if (newTerritory != null)
+                AddAetherytes(newTerritory);
+            return newTerritory;
+        }
+
+        public void SetPlayerStreamCoords(ushort territory)
+        {
+            var rawT = _pi.Data.GetExcelSheet<TerritoryType>().GetRow(territory);
+            var rawA = rawT?.Aetheryte?.Value;
+
+            _currentXStream = rawA?.AetherstreamX ?? 0;
+            _currentYStream = rawA?.AetherstreamY ?? 0;
+        }
+
+        public Node? ClosestNodeFromNodeList(IEnumerable<Node> nodes, GatheringType? type = null)
+        {
+            Node? minNode   = null;
+            var   minDist   = double.MaxValue;
+            var   worldDist = double.MaxValue;
 
             foreach (var node in nodes)
             {
                 var closest = node.GetClosestAetheryte();
-                var dist = closest?.AetherDistance(currentXStream, currentYStream) ?? Double.MaxValue;
-                if (dist < minDist && closest != null && (type == null || type!.Value.ToGroup() == node.meta.gatheringType.ToGroup()))
-                {
-                    minDist = dist;
-                    minNode = node;
-                }
-            }
-            return minNode;
-        }        
+                if (closest == null || type != null && type!.Value.ToGroup() != node.Meta!.GatheringType.ToGroup())
+                    continue;
 
-        private void AddIdyllshireToDravania()
+                var dist = closest!.AetherDistance(_currentXStream, _currentYStream);
+                if (dist > minDist)
+                    continue;
+
+                if (dist == minDist)
+                {
+                    var newWorldDist =
+                        closest.WorldDistance(node.Nodes!.Territory!.Id, (int) (node.GetX() * 100.0), (int) (node.GetY() * 100.0));
+                    if (newWorldDist >= worldDist)
+                        continue;
+
+                    worldDist = newWorldDist;
+                }
+                else
+                {
+                    worldDist = closest.WorldDistance(node.Nodes!.Territory!.Id, (int) (node.GetX() * 100.0), (int) (node.GetY() * 100.0));
+                }
+
+                minDist = dist;
+                minNode = node;
+            }
+
+            return minNode;
+        }
+
+        public FishingSpot? ClosestSpotFromSpotList(IEnumerable<FishingSpot> spots)
         {
-            var i=territories.territories;
-            //PluginLog.Information("{0},{1}", i.Count);
-            //foreach (KeyValuePair<uint, Territory> kvp in i) {
-            //    PluginLog.Information("{0},{1}", kvp.Key, kvp.Value);
-            //}
-            var dravania = territories.territories.Values.First( T => T.nameList[ClientLanguage.ChineseSimplified] == "Áú±¤ÄÚÂ½µÍµØ");
-            if (dravania == null)
-                return;
-            var idyllshire = aetherytes.aetherytes.First( A => A.nameList[ClientLanguage.ChineseSimplified] == "ÌïÔ°¿¤");
-            if (idyllshire == null)
-                return;
-            dravania.aetherytes.Add(idyllshire);
+            FishingSpot? minSpot   = null;
+            var          minDist   = double.MaxValue;
+            var          worldDist = double.MaxValue;
+
+            foreach (var spot in spots)
+            {
+                var closest = spot.ClosestAetheryte;
+                if (closest == null)
+                    continue;
+
+                var dist = closest.AetherDistance(_currentXStream, _currentYStream);
+                if (dist > minDist)
+                    continue;
+
+                if (dist == minDist)
+                {
+                    var newWorldDist = closest.WorldDistance(spot.Territory!.Id, spot.XCoord, spot.YCoord);
+                    if (newWorldDist >= worldDist)
+                        continue;
+
+                    worldDist = newWorldDist;
+                }
+                else
+                {
+                    worldDist = closest.WorldDistance(spot.Territory!.Id, spot.XCoord, spot.YCoord);
+                }
+
+                minDist = dist;
+                minSpot = spot;
+            }
+
+            return minSpot;
         }
 
         public World(DalamudPluginInterface pi, GatherBuddyConfiguration config)
         {
-            try
-            {
-                this.pi     = pi;
-                language    = pi.ClientState.ClientLanguage;
-                territories = new();
-                aetherytes  = new(pi, territories);
-                items       = new (pi);
-                nodes       = new(pi, config, territories, aetherytes, items);
-                
-                AddIdyllshireToDravania();
+            _pi         = pi;
+            Language    = pi.ClientState.ClientLanguage;
+            Territories = new TerritoryManager();
+            Aetherytes  = new AetheryteManager(pi, Territories);
+            Items       = new ItemManager(pi);
+            Nodes       = new NodeManager(pi, config, this, Aetherytes, Items);
+            Weather     = new WeatherManager(pi, Territories);
+            Fish        = new FishManager(pi, this);
 
-                Log.Verbose($"[GatherBuddy] {territories.regions.Count} regions collected.");
-                Log.Verbose($"[GatherBuddy] {territories.territories.Count} territories collected.");
-            }
-            catch(Exception e)
-            {
-                Log.Error($"[GatherBuddy] Exception thrown: {e}");
-            }
+            PluginLog.Verbose("{Count} regions collected.",     Territories.Regions.Count);
+            PluginLog.Verbose("{Count} territories collected.", Territories.Territories);
         }
 
-        public Gatherable FindItemByName(string itemName)
-        {
-            return items.FindItemByName(itemName, language);
-        }
+        public Gatherable? FindItemByName(string itemName)
+            => Items.FindItemByName(itemName, Language);
 
-        public Node ClosestNodeForItem(Gatherable item, GatheringType? type = null)
-        {
-            if (item == null)
-                return null;
-            return ClosestNodeFromNodeList(item.NodeList, type);
-        }
+        public Fish? FindFishByName(string fishName)
+            => Fish.FindFishByName(fishName, Language);
+
+        public Node? ClosestNodeForItem(Gatherable? item, GatheringType? type = null)
+            => item == null ? null : ClosestNodeFromNodeList(item.NodeList, type);
+
+        public FishingSpot? ClosestSpotForItem(Fish? fish)
+            => fish == null ? null : ClosestSpotFromSpotList(fish.FishingSpots);
     }
 }
